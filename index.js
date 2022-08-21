@@ -7,12 +7,17 @@ const NODE_ENV = process.env.NODE_ENV || "development";
 
 app.get("/", (req, res) => {
   try {
+    const protocol = req.protocol;
+    const host = req.get("host");
+
     const { file = "" } = req.query;
 
     if (!file) {
       const template = `
-        <code>SERVE FILES ${version}</code><br>
-        <code>curl http://localhost:3010/?file=lospalos.zip --output lospalos.zip</code>
+        <code>SERVE FILES</code><br>
+        <code>-----------</code><br>
+        <code>curl ${protocol}://${host}/?file=lospalos.zip --output lospalos.zip</code><br>
+        <code>curl ${protocol}://${host}/?file=locumba.zip --output locumba.zip</code><br>
         <code>@dalthonmh</code>`;
       res.send(template);
     }
