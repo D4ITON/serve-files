@@ -7,6 +7,16 @@ const NODE_ENV = process.env.NODE_ENV || "development";
 
 app.get("/", (req, res) => {
   try {
+    const { file = "" } = req.query;
+
+    if (!file) {
+      const template = `
+        <code>SERVE FILES ${version}</code><br>
+        <code>curl http://localhost:3010/?file=lospalos.zip --output lospalos.zip</code>
+        <code>@dalthonmh</code>`;
+      res.send(template);
+    }
+
     const fileToSend = `./storage/${file}`;
 
     res.download(fileToSend); // Set disposition and send it.
@@ -19,8 +29,8 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`[${SERVER_NAME}] ----- SERVE FILES-----`);
-  console.log(`[${SERVER_NAME}] http://localhost:${PORT}`);
-  console.log(`[${SERVER_NAME}] Version: ${version} | Entorno: ${NODE_ENV}`);
-  console.log(`[${SERVER_NAME}] ----- BIENVENIDO :) -----`);
+  console.log(`[CLOUD] ----- SERVE FILES-----`);
+  console.log(`[CLOUD] http://localhost:${PORT}`);
+  console.log(`[CLOUD] Version: ${version} | Entorno: ${NODE_ENV}`);
+  console.log(`[CLOUD] ----- BIENVENIDO :) -----`);
 });
