@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
       const template = `
         <code>SERVE FILES</code><br>
         <code>-----------</code><br>
-        <code>curl ${protocol}://${host}/?file=backup.zip --output backup.zip</code><br>
+        <code>curl ${protocol}://${host}/?file=backup.sql --output backup.sql</code><br>
         <code>@dalthonmh</code>`;
       res.send(template);
     }
