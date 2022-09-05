@@ -13,9 +13,7 @@ Instalar los paquetes:
 
 ## Instalation with Docker
 
-`docker run dalthonmh/serve-files:latest`
-
-> Por defecto corre en el puerto 3000, si deseamos cambiarlo agregamos -e "PORT=3005" en el comando docker
+`docker run -dp 3000:3000 dalthonmh/serve-files`
 
 ## Usage
 
