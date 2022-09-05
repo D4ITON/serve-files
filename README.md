@@ -18,12 +18,9 @@ Instalar los paquetes:
 creamos el volumen
 docker volume create storage
 
-````bash
-docker run -dp 3000:3000 --name serve-files -v $(pwd)/storage:/app/storage -e NODE_ENV=production dalthonmh/serve-files
-
 ```bash
-docker run -dp 3000:3000 dalthonmh/serve-files
-````
+docker run -dp 3000:3000 --name serve-files -v $(pwd)/storage:/app/storage -e NODE_ENV=production dalthonmh/serve-files
+```
 
 ## Usage
 
